@@ -33,13 +33,13 @@ public class HelloServlet extends HttpServlet {
         cookie.setMaxAge(30);
         response.addCookie(cookie);
 
-        if(username.equals("admin")&& password.equals("12345")){
+        if(username.equals("admin") && password.equals("12345")){
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html>");
             out.println("<meta http-equiv='refresh' content='0; URL=admin.html'>");
             out.println("</html>");
-        } else if (username.equals("user")&& password.equals("12345")){
+        } else if (username.equals("user") && password.equals("12345")){
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html>");
