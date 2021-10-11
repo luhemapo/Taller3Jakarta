@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<body style=background-color:#3965c362>
- <h1> Hola username  Ingresa nombre y foto de la mascota. </h1>
-     <form name="pruebaImagenes" method="post" action="/admin/pruebaimg" enctype="multipart/form-data" >
-         <b>Nombre de la mascota</b> <br />
-            <input type="text" name="name" ><br /><br />
-                 <b>Suba una foto de la mascotaaaaa </b><br />
-                  <input type="file" name="foto" ><br /><br />
-                <input type="submit" name="send" value="Guardar" >
+<head>
+    <title>User C4P</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <link href="user.css" rel="stylesheet">
+</head>
+<body>
+<center><h1> Hola,  Ingresa nombre y foto de la mascota. </h1></center>
+     <form name="pruebaImagenes" method="post" action="multiPart-servlet" enctype="multipart/form-data" >
+         <center>    <b>Nombre de la mascota</b> <br /></center>
+         <center>  <input type="text" name="name" ><br /><br /></center>
+         <center> <b>Suba una foto de la mascota </b><br /></center>
+         <center> <input type="file" name="foto" ><br /><br /></center>
+         <center>  <input type="submit"  class="btn btn-primary mb-2" name="send" value="Guardar" ></center>
         </form>
       </body><
