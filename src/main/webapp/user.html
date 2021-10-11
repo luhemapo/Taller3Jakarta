@@ -1,51 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signing C4P</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"></script>
-
-    <link href="signing.css" rel="stylesheet">
-
-    <!---------------------------------- Formulario de ingreso! ---------------------------------->
-</head>
-
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="form-group col-md-4 col-md-offset-5 align-center ">
-            <body class="container text-center">
-            <main class="form-signing">
-
-                <form action="hello-servlet" method="post">
-                    <img class="mb-4" src="Logo c4p.png" alt="" width="284" height="199">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" name="UserName" required>
-                        <label for="floatingInput">Usuario</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control" name="PassWord" required>
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-                    <button class="w-100 btn btn-primary" id="idLogIn" >Log in</button>
-                    <br>
-                    <!----  <a class="w-100 btn btn-primary" href="hello-servlet">Sign-in!</a>----->
-                    <!----<a href="hello-servlet">Create cookie</a>----->
-
-                    <p class="mt-5 mb-3 text-muted">By Luis Martinez</p>
-                </form>
-
-            </main>
-
-            </body>
-        </div>
-    </div>
-</div>
-</html>
+<body style=background-color:#3965c362>
+ <h1> Hola username  Ingresa nombre y foto de la mascota. </h1>
+     <form name="pruebaImagenes" method="post" action="/admin/pruebaimg" enctype="multipart/form-data" >
+         <b>Nombre de la mascota</b> <br />
+            <input type="text" name="name" ><br /><br />
+                 <b>Suba una foto de la mascotaaaaa </b><br />
+                  <input type="file" name="foto" ><br /><br />
+                <input type="submit" name="send" value="Guardar" >
+        </form>
+      </body><
