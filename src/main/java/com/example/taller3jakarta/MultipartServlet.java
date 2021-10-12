@@ -1,4 +1,4 @@
-package co.edo.unbosque.jakartaeenew.jakartaeenew;
+package com.example.taller3jakarta;
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "multiPartServlet", value = "/multiPartServlet")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
     maxFileSize = 1024 * 1024 * 10,
-    maxRequestSize = 1024 * 1024 * 5 * 10)
+    maxRequestSize = 1024 * 1024 * 5 * 5)
 
 public class MultipartServlet extends HttpServlet {
     private String message;
