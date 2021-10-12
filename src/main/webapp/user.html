@@ -1,22 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>User C4P</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signing C4P</title>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
             crossorigin="anonymous"></script>
-    <link href="user.css" rel="stylesheet">
+
+    <link href="signing.css" rel="stylesheet">
+
 </head>
-<body>
-<center><h1> Hola,  Ingresa nombre y foto de la mascota. </h1></center>
-     <form name="pruebaImagenes" action="multiPartServlet"  method="post"  enctype="multipart/form-data" >
-         <center>    <b>Nombre de la mascota</b> <br /></center>
-         <center>  <input type="text" name="name" ><br /><br /></center>
-         <center> <b>Suba una foto de la mascota </b><br /></center>
-         <center> <input type="file" name="foto" ><br /><br /></center>
-         <center>  <input type="submit"  class="btn btn-primary mb-2" name="send" value="Guardar" ></center>
-        </form>
-      </body></html>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-group col-md-4 col-md-offset-5 align-center ">
+            <body class="container text-center">
+            <main class="form-signing">
+                <h1> Hola, Ingresa el nombre y foto de tu mascota. </h1>
+                <form name="pruebaImagenes" action="multiPartServlet" method="post" enctype="multipart/form-data">
+                    <b>Nombre de la mascota</b> <br/>
+                    <input type="text" name="name"><br/><br/>
+                    <b>Suba una foto de la mascota </b><br/>
+                    <input type="file" name="foto"><br/><br/>
+                    <input type="submit" class="btn btn-primary mb-2" name="send" value="Guardar">
+                </form>
+            </main>
+            </body>
+        </div>
+    </div>
+</div>
+</html>
