@@ -35,6 +35,7 @@ public class MultipartServlet extends HttpServlet {
         if (!uploadDir.exists()) uploadDir.mkdir();
 
         String fileName = "";
+        String petName = request.getParameter("name");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         LocalDateTime now = LocalDateTime.now();
 
@@ -45,8 +46,9 @@ public class MultipartServlet extends HttpServlet {
                 }
                 String date=dtf.format(now);
                 part.write(uploadPath + File.separator + date+"_"+fileName);
+
             }
-            request.setAttribute("message", "El archivo se ha subido correctamente!" +fileName);
+            request.setAttribute("message", "La imagen "+"*"+fileName+"*"+" de tu mascota " +petName+" ha sido guardada satisfactoriamente!");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
