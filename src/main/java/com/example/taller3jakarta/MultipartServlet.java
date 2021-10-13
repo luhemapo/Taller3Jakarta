@@ -34,19 +34,19 @@ public class MultipartServlet extends HttpServlet {
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) uploadDir.mkdir();
 
-        String fileName = "hhh";
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String fileName = "";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         LocalDateTime now = LocalDateTime.now();
 
         try {
             for (Part part : request.getParts()) {
                 if (part.getSubmittedFileName() != null) {
                     fileName = part.getSubmittedFileName();
-
                 }
-                part.write(uploadPath + File.separator + fileName);
+                String date=dtf.format(now);
+                part.write(uploadPath + File.separator + date+"_"+fileName);
             }
-            request.setAttribute("message", "El archivo se ha subido correctamente!" + fileName+dtf.format(now));
+            request.setAttribute("message", "El archivo se ha subido correctamente!" +fileName+"_"+dtf.format(now));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
