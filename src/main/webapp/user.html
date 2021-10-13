@@ -27,9 +27,14 @@
                     <input type="text" name="name" required><br/><br/>
                     <b>Suba una foto de la mascota </b><br/>
                     <input type="file" accept="image/png, image/jpeg" name="foto" required><br/><br/>
-                    <input type="submit" class="btn btn-primary mb-2" name="send" value="Guardar">
+                    <input type="submit" onclick="myFunction()" class="btn btn-primary mb-2" name="send" value="Guardar">
                 </form>
             </main>
+            <script>
+                function myFunction(){
+                    alert("La imagen de "+document.getElementsByName("name")[0].value+" fue cargada satisfactoriamente");
+                }
+            </script>
             </body>
         </div>
     </div>

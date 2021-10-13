@@ -46,11 +46,8 @@ public class HelloServlet extends HttpServlet {
             out.println("<meta http-equiv='refresh' content='0; URL=user.html'>");
             out.println("</html>");
         }else {
-
             response.sendError(401);
         }
-
-
     }
 
     public void destroy() {

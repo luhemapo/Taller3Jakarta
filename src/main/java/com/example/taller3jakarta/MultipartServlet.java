@@ -1,5 +1,4 @@
 package com.example.taller3jakarta;
-
 import java.io.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -10,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
@@ -44,15 +44,16 @@ public class MultipartServlet extends HttpServlet {
                 if (part.getSubmittedFileName() != null) {
                     fileName = part.getSubmittedFileName();
                 }
-                String date=dtf.format(now);
-                part.write(uploadPath + File.separator + date+"_"+fileName);
+                String date = dtf.format(now);
+                part.write(uploadPath + File.separator + date + "_" + fileName);
 
             }
-            request.setAttribute("message", "La imagen "+"*"+fileName+"*"+" de tu mascota " +petName+" ha sido guardada satisfactoriamente!");
+            //JOptionPane.showMessageDialog(null, "La imagen " + "*" + fileName + "*" + " de tu mascota " + petName + " ha sido guardada satisfactoriamente!");
+            //request.setAttribute("message", "La imagen " + "*" + fileName + "*" + " de tu mascota " + petName + " ha sido guardada satisfactoriamente!");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/user.html").forward(request, response);
 
     }
 
