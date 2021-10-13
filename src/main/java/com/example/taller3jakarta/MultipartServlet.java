@@ -46,7 +46,7 @@ public class MultipartServlet extends HttpServlet {
                 String date=dtf.format(now);
                 part.write(uploadPath + File.separator + date+"_"+fileName);
             }
-            request.setAttribute("message", "El archivo se ha subido correctamente!" +fileName+"_"+dtf.format(now));
+            request.setAttribute("message", "El archivo se ha subido correctamente!" +fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
