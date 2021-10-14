@@ -8,6 +8,21 @@
 </head>
 
 <body>
-<h2>${message}</h2>
+<table  id="mytable" class="table table-bordered table-hover ">
+  <tr>
+    <th>Email</th>
+    <th>User Name</th>
+    <th>Role</th>
+    <th>Mascota</th>
+    <th>Imagen</th>
+  </tr>
+  <tr>
+
+    <th>${message}</th>
+    <th>Sho</th>
+    <th>Vergas</th>
+    <th>El cacas</th>
+  </tr>
+</table>
 </body>
 </html>

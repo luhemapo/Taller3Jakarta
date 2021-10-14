@@ -39,16 +39,10 @@
             <th>Mascota</th>
             <th>Imagen</th>
         </tr>
-        <tr id="row">
 
-            <th>${message}</th>
-            <th>Sho</th>
-            <th>Vergas</th>
-            <th>El cacas</th>
-        </tr>
+            ${rows}
+
     </table>
-
-    <h2>${message}</h2>
     <div id="contenedorForm">
     </div>
 </div>
