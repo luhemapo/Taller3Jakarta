@@ -42,7 +42,6 @@ public class MultipartServlet extends HttpServlet {
         LocalDateTime now = LocalDateTime.now();
         String date = dtf.format(now);
         String date2 = dtf2.format(now);
-        String ruta= uploadPath + File.separator + date + "_" + fileName;
         try {
             for (Part part : request.getParts()) {
                 if (part.getSubmittedFileName() != null) {
@@ -56,6 +55,7 @@ public class MultipartServlet extends HttpServlet {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        String ruta= date + "_" + fileName;
         getServletContext().getRequestDispatcher("/user.html").forward(request, response);
         String username = request.getParameter("name");
         Cookie[] cookies = request.getCookies();

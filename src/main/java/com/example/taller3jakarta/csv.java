@@ -36,7 +36,7 @@ public class csv extends HttpServlet{
                         " <th>" + users.get(i).getEmail() + "</th>"+
                         " <th>" + users.get(i).getPet() + "</th>"+
                         " <th>" + users.get(i).getPic() + "</th>"+
-                        " <th>  <img src="+users.get(i).getRuta()+" > </th> </tr>";
+                        " <th>  <img src='uploads/"+users.get(i).getRuta()+"' width='50'> </th> </tr>";
 
 
             }

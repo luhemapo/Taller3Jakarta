@@ -36,9 +36,8 @@
         </tr>
         ${rows}
     </table>
-
-
     <div id="contenedorForm">
+            <button onclick="window.location='index.html'" class="w-100 btn btn-primary" id="test">Atras</button>
     </div>
 </div>
 </body>
