@@ -24,25 +24,20 @@
 <div class="container">
     <h2>"Bienvenido Admin"</h2>
 
-    <form onsubmit="return false">
-        <div class="form-group">
-        </div>
-    </form>
-    <input id="foto-button" type="button" value="Mostar Fotos"/>
     <center><h1>Tabla De Mascotas</h1></center>
     <br><br>
     <table  id="mytable" class="table table-bordered table-hover ">
         <tr >
+            <th>Fecha</th>
             <th>Email</th>
-            <th>User Name</th>
-            <th>Role</th>
             <th>Mascota</th>
             <th>Imagen</th>
+            <th></th>
         </tr>
-
-            ${rows}
-
+        ${rows}
     </table>
+
+
     <div id="contenedorForm">
     </div>
 </div>

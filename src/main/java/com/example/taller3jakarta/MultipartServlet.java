@@ -34,17 +34,20 @@ public class MultipartServlet extends HttpServlet {
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) uploadDir.mkdir();
 
+
         String fileName = "";
         String petName = request.getParameter("name");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd_HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-
+        String date = dtf.format(now);
+        String date2 = dtf2.format(now);
+        String ruta= uploadPath + File.separator + date + "_" + fileName;
         try {
             for (Part part : request.getParts()) {
                 if (part.getSubmittedFileName() != null) {
                     fileName = part.getSubmittedFileName();
                 }
-                String date = dtf.format(now);
                 part.write(uploadPath + File.separator + date + "_" + fileName);
 
             }
@@ -54,9 +57,32 @@ public class MultipartServlet extends HttpServlet {
             e.printStackTrace();
         }
         getServletContext().getRequestDispatcher("/user.html").forward(request, response);
+        String username = request.getParameter("name");
+        Cookie[] cookies = request.getCookies();
 
+        escribirArchivo(uploadPath + File.separator, username, date2, fileName, ruta);
     }
 
     public void destroy() {
+    }
+
+    public void escribirArchivo( String s, String uname, String date2, String filename, String ruta){
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter(s+"prueba.txt",true);
+            pw = new PrintWriter(fichero);
+            pw.println(uname+","+date2+","+filename+","+ruta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero)
+                    fichero.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }

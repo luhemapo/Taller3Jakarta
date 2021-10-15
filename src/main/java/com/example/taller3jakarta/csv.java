@@ -12,11 +12,12 @@ import org.apache.commons.csv.CSVRecord;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 @WebServlet(name = "csv", value = "/csv")
 public class csv extends HttpServlet{
 
-    ArrayList <User> users = new ArrayList<User>();
+    ArrayList <User> users;
     private String message;
 
     public void init() {
@@ -26,15 +27,20 @@ public class csv extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         try{
-            readCsv();
+            //readCsv();
+            users = new ArrayList<User>();
+            leerArchivo();
+            String filas="";
             for(int i=0;i<users.size();i++) {
-                request.setAttribute("rows", "<tr> <th>" + users.get(i).getEmail() + "</th>"+
-                                " <th>" + users.get(i).getUserName() + "</th>"+
-                                " <th>" + users.get(i).getRole() + "</th>"+
-                                " <th>" + users.get(i).getPetName() + "</th>"+
-                                " <th>  <button> Ver Imagen </button> </th> </tr>"
-                        );
+                 filas = filas+"<tr> <th>" + users.get(i).getDate() + "</th>"+
+                        " <th>" + users.get(i).getEmail() + "</th>"+
+                        " <th>" + users.get(i).getPet() + "</th>"+
+                        " <th>" + users.get(i).getPic() + "</th>"+
+                        " <th>  <img src="+users.get(i).getRuta()+" > </th> </tr>";
+
+
             }
+            request.setAttribute("rows", filas);
             //request.setAttribute("message", users.get(0).getEmail());
             getServletContext().getRequestDispatcher("/admin.jsp").forward(request, response);
 
@@ -60,11 +66,38 @@ public class csv extends HttpServlet{
                 String password = record.get("password");
                 String role = record.get("role");
                 String petName = record.get("petName");
-                User u = new User(email, userName, password, role, petName);
-                users.add(u);
+
             }
-            System.out.println("------------------------------------------");
-            System.out.println(users.get(0).toString());
-            System.out.println(users.size());
         }
+
+    public ArrayList<User> getUsers() {
+        return users;
     }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+        public void leerArchivo() {
+            try {
+                String ruta= getServletContext().getRealPath("") + File.separator + "uploads"+File.separator+"prueba.txt";
+                Scanner input = new Scanner(new File(ruta));
+                while (input.hasNextLine()) {
+                    String line = input.nextLine();
+                    String partes[]=line.split(",");
+                    String pet = partes[0];
+                    String dte = partes[1];
+                    String pic = partes [2];
+                    String rutaPic=partes[3];
+                    System.out.println(line);
+                    User u = new User(dte,"user@user.com", pet, pic, rutaPic);
+                    users.add(u);
+                }
+                input.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
+
+}

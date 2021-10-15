@@ -2,22 +2,23 @@ package com.example.taller3jakarta;
 
 public class User {
     String email;
-    String userName;
-    String password;
-    String role;
-    String petName;
+    String pet;
+    String date;
+    String pic;
+    String ruta;
 
-    public User(String email, String userName, String password, String role, String petName){
-        this.email=email;
-        this.userName=userName;
-        this.password=password;
-        this.role=role;
-        this.petName=petName;
+    public User(String date, String userName, String pet, String pic, String ruta){
+        this.email=userName;
+        this.date=date;
+        this.pet=pet;
+        this.pic=pic;
+        this.ruta=ruta;
     }
 
     public String toString(){
-        return "Email: "+email+" UserName: "+userName+" Password: "+password+" Role: "+role+" PetName: "+petName;
+        return "Email: "+email+" date: "+date+" pet: "+pet+" pic: "+pic;
     }
+
     public String getEmail() {
         return email;
     }
@@ -26,35 +27,36 @@ public class User {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getPet() {
+        return pet;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPet(String pet) {
+        this.pet = pet;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDate() {
+        return date;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getRole() {
-        return role;
+    public String getPic() {
+        return pic;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 
-    public String getPetName() {
-        return petName;
+    public String getRuta() {
+        return ruta;
     }
 
-    public void setPetName(String petName) {
-        this.petName = petName;
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
     }
+
 }
